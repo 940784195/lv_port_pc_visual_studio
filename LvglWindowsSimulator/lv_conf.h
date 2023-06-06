@@ -24,9 +24,10 @@
  *====================*/
 
 /*Color depth: 1 (1 byte per pixel), 8 (RGB332), 16 (RGB565), 24 (RGB888), 32 (ARGB8888)*/
-#define LV_COLOR_DEPTH 32
+#define LV_COLOR_DEPTH 32//设置颜色深度
 
-#define LV_COLOR_CHROMA_KEY lv_color_hex(0x00ff00)
+#define LV_COLOR_CHROMA_KEY lv_color_hex(0x00ff00)/* 纯绿 */
+
 
 /*=========================
    STDLIB WRAPPER SETTINGS
@@ -36,7 +37,7 @@
 #define LV_USE_BUILTIN_MALLOC 1
 #if LV_USE_BUILTIN_MALLOC
     /*Size of the memory available for `lv_malloc()` in bytes (>= 2kB)*/
-    #define LV_MEM_SIZE (1024U * 1024U)          /*[bytes]*/
+    #define LV_MEM_SIZE (1024U * 1024U)          /*[bytes]*/ 
 
     /*Size of the memory expand for `lv_malloc()` in bytes*/
     #define LV_MEM_POOL_EXPAND_SIZE 0
@@ -94,10 +95,13 @@
     /*If using lvgl as ESP32 component*/
     // #define LV_TICK_CUSTOM_INCLUDE "esp_timer.h"
     // #define LV_TICK_CUSTOM_SYS_TIME_EXPR ((esp_timer_get_time() / 1000LL))
+    /*如果要烧录到其他芯片如ESP32，则使用对应的定时器和 能够返回tick的函数*/
+
+
 #endif   /*LV_TICK_CUSTOM*/
 
 /*Default Dot Per Inch. Used to initialize default sizes such as widgets sized, style paddings.
- *(Not so important, you can adjust it to modify default sizes and spaces)*/
+ *(Not so important, you can adjust it to modify default sizes and spaces)设置组件的常规大小*/
 #define LV_DPI_DEF 130     /*[px/inch]*/
 
 /*========================
@@ -239,6 +243,7 @@
 
     /*1: Print the log with 'printf';
     *0: User need to register a callback with `lv_log_register_print_cb()`*/
+    /*如果想要得到log，需要在回调函数中实现  */
     #define LV_LOG_PRINTF 1
 
     /*1: Enable print timestamp;
@@ -369,7 +374,7 @@
 /*==================
  *   FONT USAGE
  *===================*/
-
+/*MONTSERRAT字体设置*/
 /*Montserrat fonts with ASCII range and some symbols using bpp = 4
  *https://fonts.google.com/specimen/Montserrat*/
 #define LV_FONT_MONTSERRAT_8  1
