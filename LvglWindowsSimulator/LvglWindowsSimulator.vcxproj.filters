@@ -681,6 +681,10 @@
     </ClInclude>
     <ClInclude Include="lv_conf.h" />
     <ClInclude Include="win32drv.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="..\LvglPlatform\lvgl\demos\MeterTest\MeterTest.h">
+      <Filter>lvgl\demos\MeterTest</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Manifest Include="LvglWindowsSimulator.manifest" />
@@ -2056,6 +2060,9 @@
     </ClCompile>
     <ClCompile Include="LvglWindowsSimulator.cpp" />
     <ClCompile Include="win32drv.c" />
+    <ClCompile Include="..\LvglPlatform\lvgl\demos\MeterTest\MeterTest.c">
+      <Filter>lvgl\demos\MeterTest</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)..\LvglPlatform\freetype\.clang-format">
@@ -7338,5 +7345,11 @@
     <Filter Include="lvgl\tests\unity">
       <UniqueIdentifier>{d74a54ad-4af8-4e1e-9ceb-686a56106387}</UniqueIdentifier>
     </Filter>
+    <Filter Include="lvgl\demos\MeterTest">
+      <UniqueIdentifier>{4071a0fa-5144-4f98-b87a-4fc6ea83e60e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="LvglWindowsSimulator.rc" />
   </ItemGroup>
 </Project>
