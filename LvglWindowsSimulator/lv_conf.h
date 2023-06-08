@@ -30,11 +30,27 @@
 
 
 /*=========================
-   STDLIB WRAPPER SETTINGS
+   STDLIB WRAPPER SETTINGS 动态内存管理
  *=========================*/
 
 /*Enable and configure the built-in memory manager*/
-#define LV_USE_BUILTIN_MALLOC 1
+#define LV_USE_BUILTIN_MALLOC 1  /*怀疑此处为 是否使用LVGL自带的 内存管理算法*/
+/*
+主要包括使用下方数个 LVGL自带的内存管理函数和宏定义
+#define LV_STDLIB_INCLUDE <stdint.h>
+#define LV_STDIO_INCLUDE  <stdint.h>
+#define LV_STRING_INCLUDE <stdint.h>
+#define LV_MALLOC       lv_malloc_builtin
+#define LV_REALLOC      lv_realloc_builtin
+#define LV_FREE         lv_free_builtin
+#define LV_MEMSET       lv_memset_builtin
+#define LV_MEMCPY       lv_memcpy_builtin
+#define LV_SNPRINTF     lv_snprintf_builtin
+#define LV_VSNPRINTF    lv_vsnprintf_builtin
+#define LV_STRLEN       lv_strlen_builtin
+#define LV_STRNCPY      lv_strncpy_builtin
+#define LV_STRCPY       lv_strcpy_builtin*/
+
 #if LV_USE_BUILTIN_MALLOC
     /*Size of the memory available for `lv_malloc()` in bytes (>= 2kB)*/
     #define LV_MEM_SIZE (1024U * 1024U)          /*[bytes]*/ 
@@ -43,7 +59,7 @@
     #define LV_MEM_POOL_EXPAND_SIZE 0
 
     /*Set an address for the memory pool instead of allocating it as a normal array. Can be in external SRAM too.*/
-    #define LV_MEM_ADR 0     /*0: unused*/
+    #define LV_MEM_ADR 0     /*0: unused*/  /*此处可以放一个地址，但下方要同步*/
     /*Instead of an address give a memory allocator that will be called to get a memory pool for LVGL. E.g. my_malloc*/
     #if LV_MEM_ADR == 0
         #undef LV_MEM_POOL_INCLUDE
@@ -80,10 +96,10 @@
 #define LV_COLOR_MIX_PREMULT      lv_color_mix_premult
 
 /*====================
-   HAL SETTINGS
+   HAL SETTINGS硬件抽象层
  *====================*/
 
-/*Default display refresh, input device read and animation step period.*/
+/*Default display refresh, input device read and animation step period.刷新周期*/
 #define LV_DEF_REFR_PERIOD  10      /*[ms]*/
 
 /*Use a custom tick source that tells the elapsed time in milliseconds.

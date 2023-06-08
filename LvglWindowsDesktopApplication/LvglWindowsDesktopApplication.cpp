@@ -2,7 +2,8 @@
  * PROJECT:   LVGL Windows Desktop Application Demo
  * FILE:      LvglWindowsDesktopApplication.cpp
  * PURPOSE:   Implementation for LVGL Windows Desktop Application Demo
- *
+ *              这个工程显然是在Window系统下使用的，因为引用了诸多Window.H相关的头文件，
+ * 另外一个cpp文件更加接近LVGL模拟工程的试验。
  * LICENSE:   The MIT License
  *
  * DEVELOPER: Mouri_Naruto (Mouri_Naruto AT Outlook.com)
